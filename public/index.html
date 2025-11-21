@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>SnorxFit - Tu Compañero de Fitness</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SnorxFit">
+    <meta name="description" content="App de fitness personalizada con Snorlax como tu entrenador personal">
+    <meta name="author" content="SnorxFit Team">
+    <meta name="keywords" content="fitness, salud, ejercicio, nutrición, peso, snorlax">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SnorxFit - Tu Compañero de Fitness">
+    <meta property="og:description" content="App de fitness personalizada con Snorlax como tu entrenador personal">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😴</text></svg>">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%233b82f6' rx='40'/><text x='90' y='135' text-anchor='middle' font-size='100'>😴</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Dark Mode Configuration -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: system-ui, sans-serif;">
+        <h1>😴 SnorxFit</h1>
+        <p>Por favor, habilita JavaScript para usar SnorxFit.</p>
+      </div>
+    </noscript>
+  </body>
+</html>

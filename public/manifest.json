@@ -1,0 +1,63 @@
+{
+  "short_name": "SnorxFit",
+  "name": "SnorxFit - Tu Compañero de Fitness con Snorlax",
+  "description": "App de fitness personalizada con Snorlax como tu entrenador personal",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%233b82f6' rx='40'/><text x='96' y='145' text-anchor='middle' font-size='120'>😴</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%233b82f6' rx='100'/><text x='256' y='390' text-anchor='middle' font-size='320'>😴</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#3b82f6",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["health", "fitness", "lifestyle"],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'><rect width='400' height='800' fill='%23dbeafe'/><text x='200' y='400' text-anchor='middle' font-size='80'>😴</text><text x='200' y='500' text-anchor='middle' font-size='32' fill='%231f2937'>SnorxFit</text></svg>",
+      "sizes": "400x800",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Vista principal de SnorxFit"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Registrar Peso",
+      "short_name": "Peso",
+      "description": "Registrar tu peso actual",
+      "url": "/progress",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Registro de Comidas",
+      "short_name": "Comidas",
+      "description": "Registrar comidas del día",
+      "url": "/food",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍎</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
