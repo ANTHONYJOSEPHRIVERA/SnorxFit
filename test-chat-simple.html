@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Chatbot Simple</title>
+</head>
+<body>
+    <h1>Test Chatbot API</h1>
+    <button onclick="testChat()">Probar Chatbot</button>
+    <div id="result"></div>
+
+    <script type="module">
+        import { GoogleGenerativeAI } from 'https://esm.run/@google/generative-ai';
+
+        window.testChat = async function() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Probando...';
+            
+            try {
+                const API_KEY = 'AIzaSyC9R7T8UN8O9Jii_eMXU3KVG3oCDCbuTZA';
+                const genAI = new GoogleGenerativeAI(API_KEY);
+                const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+                
+                const result = await model.generateContent("Hola, di algo motivador sobre fitness");
+                const response = result.response;
+                const text = response.text();
+                
+                resultDiv.innerHTML = `<strong>✅ FUNCIONA!</strong><br>${text}`;
+            } catch (error) {
+                resultDiv.innerHTML = `<strong>❌ ERROR:</strong><br>${error.message}<br><pre>${JSON.stringify(error, null, 2)}</pre>`;
+            }
+        }
+    </script>
+</body>
+</html>

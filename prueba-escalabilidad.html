@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba de Escalabilidad - Simulador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 { color: #333; }
+    button {
+      background: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+    }
+    button:hover { background: #45a049; }
+    .info {
+      background: #e3f2fd;
+      padding: 15px;
+      border-left: 4px solid #2196F3;
+      margin: 20px 0;
+    }
+    .log {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 12px;
+    }
+    .log-item {
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 Prueba de Escalabilidad - FICTIA</h1>
+    
+    <div class="info">
+      <h3>📋 Instrucciones:</h3>
+      <ol>
+        <li>Haz clic en "Abrir 10 Pestañas"</li>
+        <li>Se abrirán 10 ventanas de tu aplicación</li>
+        <li>Inicia sesión en cada una (o usa la misma sesión)</li>
+        <li>Envía mensajes en cada pestaña</li>
+        <li>Ve a Firebase Console para ver todos los mensajes</li>
+        <li>Captura screenshots para tu tesis</li>
+      </ol>
+    </div>
+
+    <button onclick="abrirMultiplesPestanas()">🚀 Abrir 10 Pestañas</button>
+    <button onclick="abrirFirebaseConsole()">📊 Abrir Firebase Console</button>
+    <button onclick="limpiarLog()">🗑️ Limpiar Log</button>
+
+    <div class="log" id="log">
+      <div class="log-item">✅ Sistema listo. Haz clic en "Abrir 10 Pestañas" para comenzar.</div>
+    </div>
+  </div>
+
+  <script>
+    const APP_URL = 'http://localhost:3000';
+    const FIREBASE_URL = 'https://console.firebase.google.com';
+
+    function agregarLog(mensaje, tipo = 'info') {
+      const log = document.getElementById('log');
+      const item = document.createElement('div');
+      item.className = 'log-item';
+      
+      const timestamp = new Date().toLocaleTimeString();
+      const icon = tipo === 'success' ? '✅' : tipo === 'error' ? '❌' : '📝';
+      
+      item.innerHTML = `[${timestamp}] ${icon} ${mensaje}`;
+      log.appendChild(item);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function abrirMultiplesPestanas() {
+      agregarLog('Iniciando prueba de escalabilidad...', 'info');
+      
+      for (let i = 1; i <= 10; i++) {
+        setTimeout(() => {
+          window.open(APP_URL, `_blank_${i}`);
+          agregarLog(`Pestaña ${i}/10 abierta`, 'success');
+          
+          if (i === 10) {
+            setTimeout(() => {
+              agregarLog('✅ 10 pestañas abiertas exitosamente', 'success');
+              agregarLog('👉 Ahora envía mensajes en cada pestaña', 'info');
+              agregarLog('👉 Luego abre Firebase Console para ver los mensajes', 'info');
+            }, 500);
+          }
+        }, i * 300); // Abre cada 300ms para no saturar
+      }
+    }
+
+    function abrirFirebaseConsole() {
+      window.open(FIREBASE_URL, '_blank');
+      agregarLog('Firebase Console abierta en nueva pestaña', 'success');
+      agregarLog('👉 Ve a Firestore → chatHistory para ver mensajes', 'info');
+      agregarLog('👉 Ve a Authentication → Users para ver usuarios activos', 'info');
+    }
+
+    function limpiarLog() {
+      document.getElementById('log').innerHTML = '';
+      agregarLog('Log limpiado', 'info');
+    }
+
+    // Mensajes sugeridos para probar
+    const mensajesSugeridos = [
+      '¿Cuánta agua debo tomar?',
+      '¿Qué proteínas recomiendas?',
+      'Calorías de una manzana',
+      '¿Cómo hacer déficit calórico?',
+      '¿Cómo ganar músculo?',
+      'Ejercicios de cardio',
+      'Horarios de comida',
+      'Suplementos recomendados',
+      'Ayuno intermitente',
+      'Comida peruana saludable'
+    ];
+
+    agregarLog('💡 Mensajes sugeridos para cada pestaña:', 'info');
+    mensajesSugeridos.forEach((msg, i) => {
+      agregarLog(`   ${i + 1}. ${msg}`, 'info');
+    });
+  </script>
+</body>
+</html>
